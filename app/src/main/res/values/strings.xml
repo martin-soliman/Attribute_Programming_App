@@ -4,4 +4,13 @@
     <string name="startup_prompt">Please enter your credentials and serial number</string>
     <string name="email_prompt">Wmrth email:</string>
     <string name="serial_prompt">Serial #:</string>
+    <string name="credentials_authentication">Authenticating credentials…</string>
+    <string name="credentials_failed">Invalid credentials</string>
+    <string name="bluetooth_scan">Scanning for bluetooth device…</string>
+    <string name="bluetooth_fail">Bluetooth device not found</string>
+    <string name="bluetooth_list_head">Available bluetooth devices</string>
+    <string name="query_head">Select one of the options from below</string>
+    <string name="qa_review">QA Review</string>
+    <string name="program_chair">Program Chair</string>
+    <string name="final_inspection">Final Inspection</string>
 </resources>

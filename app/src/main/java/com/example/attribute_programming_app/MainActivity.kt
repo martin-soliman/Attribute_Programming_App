@@ -33,7 +33,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    StartupPage()
+                    CredentialsAuthenticationPage()
                 }
             }
         }
@@ -138,7 +138,7 @@ fun Credentials(modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun GreetingPreview() {
+fun StartupPreview() {
     Attribute_Programming_AppTheme {
         StartupPage()
     }
