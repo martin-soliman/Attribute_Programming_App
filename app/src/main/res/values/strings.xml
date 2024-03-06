@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Attribute_Programming_App</string>
+    <string name="startup_head">Welcome to the Attribute Programming App!</string>
+    <string name="startup_prompt">Please enter your credentials and serial number</string>
+    <string name="email_prompt">Wmrth email:</string>
+    <string name="serial_prompt">Serial #:</string>
 </resources>
