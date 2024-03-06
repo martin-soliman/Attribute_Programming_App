@@ -47,50 +47,45 @@ fun StartupPage(modifier: Modifier = Modifier) {
         verticalArrangement = Arrangement.Top,
         horizontalAlignment =  Alignment.CenterHorizontally,
         ) {
-        Column(modifier = Modifier
-            .padding(
-                top = 50.dp,
-                start = 25.dp,
-                end = 25.dp,)
-            .weight(0.6F)) {
-            val image = painterResource(R.drawable.wrmth_logo_01)
-            Image(
-                painter = image,
-                contentDescription = null,
-            )
-        }
+        val image = painterResource(R.drawable.wrmth_logo_01)
+        Image(
+            painter = image,
+            contentDescription = null,
+            modifier = Modifier
+                .padding(
+                    top = 50.dp,
+                    start = 25.dp,
+                    end = 25.dp,)
+                .weight(0.6F)
+        )
 
-        Column(modifier = Modifier
-            .padding(
-                top = 40.dp,
-                start = 25.dp,
-                end = 25.dp,
-                bottom = 5.dp)
-            .weight(0.75F, fill = false)
-        ) {
-            Text(
-                text = stringResource(R.string.startup_head),
-                fontSize = 30.sp,
-                textAlign = TextAlign.Center,
-            )
-        }
+        Text(
+            text = stringResource(R.string.startup_head),
+            fontSize = 30.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .padding(
+                    top = 40.dp,
+                    start = 25.dp,
+                    end = 25.dp,
+                    bottom = 5.dp)
+                .weight(0.75F, fill = false)
+        )
 
-        Column(modifier = Modifier
-            .padding(
-                top = 20.dp,
-                start = 55.dp,
-                end = 55.dp,
-                bottom = 20.dp
-            )
-            .weight(0.75F, fill = false)
-        ) {
-            Text(
-                text = stringResource(R.string.startup_prompt),
-                fontSize = 20.sp,
-                fontWeight = FontWeight.Bold,
-                textAlign = TextAlign.Center,
-            )
-        }
+        Text(
+            text = stringResource(R.string.startup_prompt),
+            fontSize = 20.sp,
+            fontWeight = FontWeight.Bold,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+                .padding(
+                    top = 20.dp,
+                    start = 55.dp,
+                    end = 55.dp,
+                    bottom = 20.dp
+                )
+                .weight(0.75F, fill = false)
+        )
 
         Credentials(modifier = Modifier
             .weight(1.5F)
