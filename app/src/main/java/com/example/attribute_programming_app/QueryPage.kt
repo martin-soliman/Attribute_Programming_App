@@ -19,10 +19,12 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavController
+import androidx.navigation.compose.rememberNavController
 import com.example.attribute_programming_app.ui.theme.Attribute_Programming_AppTheme
 
 @Composable
-fun QueryPage(modifier: Modifier = Modifier) {
+fun QueryPage(modifier: Modifier = Modifier, navController: NavController) {
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
@@ -70,6 +72,8 @@ fun QueryPage(modifier: Modifier = Modifier) {
         ) {
             Text(stringResource(R.string.final_inspection))
         }
+        Spacer(modifier = Modifier.height(100.dp))
+        NextButton(navController = navController, route = Screen.StartupScreen.route)
     }
 }
 
@@ -77,6 +81,6 @@ fun QueryPage(modifier: Modifier = Modifier) {
 @Composable
 fun QueryPreview() {
     Attribute_Programming_AppTheme {
-        QueryPage()
+        QueryPage(navController = rememberNavController())
     }
 }

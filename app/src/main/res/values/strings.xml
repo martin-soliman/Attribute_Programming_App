@@ -6,6 +6,7 @@
     <string name="serial_prompt">Serial #:</string>
     <string name="credentials_authentication">Authenticating credentials…</string>
     <string name="credentials_failed">Invalid credentials</string>
+    <string name="try_again">Try again</string>
     <string name="bluetooth_scan">Scanning for bluetooth device…</string>
     <string name="bluetooth_fail">Bluetooth device not found</string>
     <string name="bluetooth_list_head">Available bluetooth devices</string>
