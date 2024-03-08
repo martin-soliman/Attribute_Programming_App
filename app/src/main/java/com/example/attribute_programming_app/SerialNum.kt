@@ -4,9 +4,8 @@ import android.os.Build
 import androidx.annotation.RequiresApi
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
-import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
-import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -19,24 +18,28 @@ import com.example.attribute_programming_app.ui.theme.Attribute_Programming_AppT
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 @Composable
-fun StartupPage(modifier: Modifier = Modifier, navController: NavController) {
+fun SerialNumPage(modifier: Modifier = Modifier, navController: NavController) {
     Column(
         modifier = modifier.fillMaxSize(),
         verticalArrangement = Arrangement.Top,
         horizontalAlignment =  Alignment.CenterHorizontally,
     ) {
-        WrmthHeader(prompt = stringResource(R.string.startup_prompt))
-        Spacer(modifier = Modifier
-            .height(75.dp))
-        GoogleSignInButton(navController)
+        WrmthHeader(prompt = stringResource(R.string.serial_num_prompt))
+        AppTextField(head = "Serial #", fieldType = 1)
+
+        NextButton(
+            navController = navController,
+            route = Screen.AuthenticationScreen.route,
+            modifier = Modifier
+                .padding(top = 100.dp))
     }
 }
 
 @RequiresApi(Build.VERSION_CODES.UPSIDE_DOWN_CAKE)
 @Preview(showBackground = true)
 @Composable
-fun StartupPreview() {
+fun SerialNumPreview() {
     Attribute_Programming_AppTheme {
-        StartupPage(navController = rememberNavController())
+        SerialNumPage(navController = rememberNavController())
     }
 }

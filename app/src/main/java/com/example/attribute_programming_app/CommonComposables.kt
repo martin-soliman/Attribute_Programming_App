@@ -21,11 +21,56 @@ import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.input.KeyboardType
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
+import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 
 val orange = 0xFFFFA500
+
+@Composable
+fun WrmthHeader(prompt: String) {
+    val image = painterResource(R.drawable.wrmth_logo_01)
+    Image(
+        painter = image,
+        contentDescription = null,
+        modifier = Modifier
+            .padding(
+                top = 50.dp,
+                start = 25.dp,
+                end = 25.dp,
+            )
+    )
+
+    Text(
+        text = stringResource(R.string.startup_head),
+        fontSize = 30.sp,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .padding(
+                top = 40.dp,
+                start = 25.dp,
+                end = 25.dp,
+                bottom = 5.dp
+            )
+    )
+
+    Text(
+        text = prompt,
+        fontSize = 20.sp,
+        fontWeight = FontWeight.Bold,
+        textAlign = TextAlign.Center,
+        modifier = Modifier
+            .padding(
+                top = 20.dp,
+                start = 55.dp,
+                end = 55.dp,
+                bottom = 20.dp
+            )
+    )
+}
 @Composable
 fun NextButton(modifier: Modifier = Modifier, navController: NavController, route: String) {
     Button(
@@ -82,7 +127,11 @@ fun AppTextField(head: String, fieldType: Int) {
         },
         keyboardOptions = KeyboardOptions(
                 keyboardType = if(fieldType == 0) KeyboardType.Email else KeyboardType.Number
-                )
+                ),
+        supportingText = {
+            Text(text = if (fieldType == 0) "" else "*The serial number is on the chair's PCB")
+        }
+
     )
 }
 

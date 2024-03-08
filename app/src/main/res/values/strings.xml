@@ -1,8 +1,9 @@
 <resources>
     <string name="app_name">Attribute_Programming_App</string>
     <string name="startup_head">Welcome to the Attribute Programming App!</string>
-    <string name="startup_prompt">Please enter your credentials and serial number</string>
+    <string name="startup_prompt">Please sign in with your Wrmth credentials</string>
     <string name="email_prompt">Wmrth email:</string>
+    <string name="serial_num_prompt">Please enter the chair\'s serial number</string>
     <string name="serial_prompt">Serial #:</string>
     <string name="credentials_authentication">Authenticating credentials…</string>
     <string name="credentials_failed">Invalid credentials</string>
@@ -14,4 +15,6 @@
     <string name="qa_review">QA Review</string>
     <string name="program_chair">Program Chair</string>
     <string name="final_inspection">Final Inspection</string>
+    <string name="title_activity_maps">MapsActivity</string>
+    <string name="google_client_id">449101684383-k9sifvrfnfrt9fpvqucv3acql76fubo2.apps.googleusercontent.com</string>
 </resources>

@@ -11,6 +11,9 @@ fun Navigation() {
         composable(route = Screen.StartupScreen.route) {
             StartupPage(navController = navController)
         }
+        composable(route = Screen.SerialNumScreen.route) {
+            SerialNumPage(navController = navController)
+        }
         composable(route = Screen.AuthenticationScreen.route) {
             CredentialsAuthenticationPage(navController = navController)
         }
