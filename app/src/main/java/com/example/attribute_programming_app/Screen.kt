@@ -2,6 +2,7 @@ package com.example.attribute_programming_app
 
 sealed class Screen(val route: String) {
     object StartupScreen: Screen("startup_screen")
+    object SerialNumScreen: Screen("serial_num_screen")
     object AuthenticationScreen: Screen("authentication_screen")
     object AuthenticationFailedScreen: Screen("authentication_failed_screen")
     object BluetoothScreen: Screen("bluetooth_screen")
