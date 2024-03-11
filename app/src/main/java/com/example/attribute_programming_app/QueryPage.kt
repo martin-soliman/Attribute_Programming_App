@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.stringResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -31,25 +32,36 @@ fun QueryPage(modifier: Modifier = Modifier, navController: NavController) {
         horizontalAlignment =  Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(R.string.query_head),
+            text = stringResource(R.string.query_status) + "\n" /* + statusVar */,
             fontSize = 30.sp,
+            fontWeight = FontWeight.Bold,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .padding(
-                    top = 150.dp,
+                    top = 100.dp,
                     start = 25.dp,
                     end = 25.dp,
                     bottom = 25.dp
                 )
                 .weight(0.75F, fill = false)
+
+
         )
 
-        Spacer(modifier = Modifier.height(100.dp))
+        Text(
+            text = stringResource(R.string.query_prompt),
+            fontSize = 20.sp,
+            textAlign = TextAlign.Center,
+            modifier = Modifier
+        )
+
+        Spacer(modifier = Modifier.height(150.dp))
 
         //button options here
         val orange = 0xFFFFA500
         Button(
-            onClick = { /*TODO*/ }, Modifier.scale(2F),
+            onClick = { navController.navigate(Screen.QAScreen.route) },
+            Modifier.scale(2F),
             colors = ButtonDefaults.buttonColors(Color(orange))
         ) {
             Text(stringResource(R.string.qa_review))
@@ -58,7 +70,8 @@ fun QueryPage(modifier: Modifier = Modifier, navController: NavController) {
         Spacer(modifier = Modifier.height(50.dp))
 
         Button(
-            onClick = { /*TODO*/ }, Modifier.scale(2F),
+            onClick = { navController.navigate(Screen.NFCScreen.route) },
+            Modifier.scale(2F),
             colors = ButtonDefaults.buttonColors(Color(orange))
         ) {
             Text(stringResource(R.string.program_chair))
@@ -67,13 +80,18 @@ fun QueryPage(modifier: Modifier = Modifier, navController: NavController) {
         Spacer(modifier = Modifier.height(50.dp))
 
         Button(
-            onClick = { /*TODO*/ }, Modifier.scale(2F),
+            onClick = { navController.navigate(Screen.FinalInspectionScreen.route) },
+            Modifier.scale(2F),
             colors = ButtonDefaults.buttonColors(Color(orange))
         ) {
             Text(stringResource(R.string.final_inspection))
         }
         Spacer(modifier = Modifier.height(100.dp))
-        NextButton(navController = navController, route = Screen.StartupScreen.route)
+
+        AppButton(
+            { navController.navigate(Screen.StartupScreen.route) },
+            stringResource(R.string.next)
+        )
     }
 }
 

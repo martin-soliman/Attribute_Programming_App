@@ -1,6 +1,8 @@
 package com.example.attribute_programming_app
 
 import androidx.compose.foundation.Image
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -8,14 +10,20 @@ import androidx.compose.material.icons.outlined.Email
 import androidx.compose.material.icons.outlined.Search
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.ExposedDropdownMenuBox
+import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextField
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
 import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.scale
 import androidx.compose.ui.graphics.Color
@@ -25,30 +33,19 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavController
 
-val orange = 0xFFFFA500
 @Composable
-fun NextButton(modifier: Modifier = Modifier, navController: NavController, route: String) {
+fun AppButton(
+    action: () -> Unit, //action lambda used to define onClick for Button
+    head: String,
+    modifier: Modifier = Modifier,
+    color: Color = Color(R.color.dark_orange)
+) {
     Button(
-        onClick = {navController.navigate(route) },
-        colors = ButtonDefaults.buttonColors(Color(orange)),
-        modifier = modifier.padding(
-            start = 175.dp,
-            top = 25.dp)
-    ) {
-        Text("Thank you, next")
-    }
-}
-
-@Composable
-fun TryAgainButton(modifier: Modifier = Modifier, navController: NavController, route: String) {
-    Button(
-        onClick = { navController.navigate(route) },
-        colors = ButtonDefaults.buttonColors(Color(orange)),
+        onClick = action,
+        colors = ButtonDefaults.buttonColors(Color(0xFFFFA500)),
         modifier = modifier
-            .scale(2F)
-            .padding(top = 25.dp)
     ) {
-        Text(stringResource(R.string.try_again))
+        Text(text = head)
     }
 }
 
@@ -64,7 +61,10 @@ fun ErrorImage(modifier: Modifier = Modifier) {
 }
 
 @Composable
-fun AppTextField(head: String, fieldType: Int) {
+fun AppTextField(
+    head: String,
+    fieldType: Int
+) {
     var filledText by remember {
         mutableStateOf("")
     }
@@ -85,6 +85,78 @@ fun AppTextField(head: String, fieldType: Int) {
                 )
     )
 }
+
+@OptIn(ExperimentalMaterial3Api::class)
+@Composable
+fun dropdownMenu(
+    dropdownName: String,
+    items: List<String>
+): String {
+    var isExpanded by remember {
+        mutableStateOf(false)
+    }
+
+    var selectedItem by remember {
+        mutableStateOf(dropdownName)
+    }
+
+    Box() {
+        ExposedDropdownMenuBox(
+            expanded = isExpanded,
+            onExpandedChange = { isExpanded = it }
+        ) {
+            TextField(
+                value = selectedItem,
+                onValueChange = {},
+                readOnly = true,
+                trailingIcon = {
+                    ExposedDropdownMenuDefaults.TrailingIcon(expanded = isExpanded)
+                    },
+                colors = ExposedDropdownMenuDefaults.textFieldColors(),
+                modifier = Modifier.menuAnchor()
+            )
+
+            ExposedDropdownMenu(
+                expanded = isExpanded,
+                onDismissRequest = { isExpanded = false }
+            ) {
+                items.forEach { item ->
+                    DropdownMenuItem(
+                        onClick = {
+                            selectedItem = item
+                            isExpanded = false
+                        },
+                        text = {
+                            Text(text = item)
+                        }
+                    )
+
+                }
+
+            }
+
+        }
+    }
+
+    return selectedItem
+}
+
+
+@Composable
+fun ImageBackgroundPage(imageID: Int) {
+    Box(
+        modifier = Modifier.fillMaxSize(),
+        contentAlignment = Alignment.Center,
+    ) {
+        val image = painterResource(imageID)
+        Image(
+            painter = image,
+            modifier = Modifier.fillMaxSize(),
+            contentDescription = null
+        )
+    }
+}
+
 
 
 

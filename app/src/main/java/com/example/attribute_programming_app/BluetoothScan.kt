@@ -68,7 +68,10 @@ fun BluetoothScanPage(modifier: Modifier = Modifier, navController: NavControlle
         )
         Spacer(modifier = Modifier.height(100.dp))
 
-        NextButton(navController = navController, route = Screen.BluetoothFailedScreen.route)
+        AppButton(
+            { navController.navigate(Screen.BluetoothFailedScreen.route) },
+            stringResource(R.string.next)
+        )
     }
 }
 

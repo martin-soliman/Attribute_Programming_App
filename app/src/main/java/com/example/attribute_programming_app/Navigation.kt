@@ -26,5 +26,23 @@ fun Navigation() {
         composable(route = Screen.QueryScreen.route) {
             QueryPage(navController = navController)
         }
+        composable(route = Screen.QAScreen.route) {
+            QueryPage(navController = navController)
+        }
+        composable(route = Screen.QASignOffScreen.route) {
+            QueryPage(navController = navController)
+        }
+        composable(route = Screen.NFCScreen.route) {
+            NFCPage(navController = navController)
+        }
+        composable(route = Screen.ProgrammingScreen.route) {
+            ProgrammingPage(navController = navController)
+        }
+        composable(route = Screen.FinalInspectionScreen.route) {
+            QueryPage(navController = navController)
+        }
+        composable(route = Screen.FinalInspectionSignOffScreen.route) {
+            QueryPage(navController = navController)
+        }
     }
 }

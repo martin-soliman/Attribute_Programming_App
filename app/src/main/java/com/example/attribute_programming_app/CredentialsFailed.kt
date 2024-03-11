@@ -42,11 +42,17 @@ fun CredentialsFailedPage(modifier: Modifier = Modifier, navController: NavContr
 
         Spacer(modifier = Modifier.height(20.dp))
 
-        TryAgainButton(navController = navController, route = Screen.AuthenticationScreen.route)
+        AppButton(
+            { navController.navigate(Screen.AuthenticationScreen.route) },
+            stringResource(R.string.try_again)
+        )
 
         Spacer(modifier = Modifier.height(125.dp))
 
-        NextButton(navController = navController, route = Screen.BluetoothScreen.route)
+        AppButton(
+            { navController.navigate(Screen.BluetoothScreen.route) },
+            stringResource(R.string.next)
+        )
     }
 }
 

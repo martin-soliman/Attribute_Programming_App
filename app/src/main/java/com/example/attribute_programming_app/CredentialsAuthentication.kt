@@ -54,7 +54,10 @@ fun CredentialsAuthenticationPage(modifier: Modifier = Modifier, navController: 
             trackColor = MaterialTheme.colorScheme.surfaceVariant,
         )
 
-        NextButton(navController = navController, route = Screen.AuthenticationFailedScreen.route)
+        AppButton(
+            { navController.navigate(Screen.AuthenticationFailedScreen.route) },
+            stringResource(R.string.next)
+        )
     }
 }
 

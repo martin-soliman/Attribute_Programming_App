@@ -73,7 +73,10 @@ fun StartupPage(modifier: Modifier = Modifier, navController: NavController) {
             .weight(1.5F)
             .padding(top = 100.dp))
 
-        NextButton(navController = navController, route = Screen.AuthenticationScreen.route)
+        AppButton(
+            { navController.navigate(Screen.AuthenticationScreen.route) },
+            stringResource(R.string.next)
+        )
     }
 }
 

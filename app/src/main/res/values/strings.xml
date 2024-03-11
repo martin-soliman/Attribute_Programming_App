@@ -6,11 +6,16 @@
     <string name="serial_prompt">Serial #:</string>
     <string name="credentials_authentication">Authenticating credentials…</string>
     <string name="credentials_failed">Invalid credentials</string>
+    <string name="next">Next</string>
     <string name="try_again">Try again</string>
+    <string name="cancel">Cancel</string>
+    <string name="reset">Reset</string>
+    <string name="save">Save</string>
     <string name="bluetooth_scan">Scanning for bluetooth device…</string>
     <string name="bluetooth_fail">Bluetooth device not found</string>
     <string name="bluetooth_list_head">Available bluetooth devices</string>
-    <string name="query_head">Select one of the options from below</string>
+    <string name="query_prompt">Select one of the options from below</string>
+    <string name="query_status">Current chair status: </string>
     <string name="qa_review">QA Review</string>
     <string name="program_chair">Program Chair</string>
     <string name="final_inspection">Final Inspection</string>
