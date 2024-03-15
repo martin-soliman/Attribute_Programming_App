@@ -1,8 +1,16 @@
-package com.example.attribute_programming_app
+package com.example.attribute_programming_app.navigation
 import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.attribute_programming_app.composables.BluetoothFailedPage
+import com.example.attribute_programming_app.composables.BluetoothScanPage
+import com.example.attribute_programming_app.composables.CredentialsAuthenticationPage
+import com.example.attribute_programming_app.composables.CredentialsFailedPage
+import com.example.attribute_programming_app.composables.NFCPage
+import com.example.attribute_programming_app.composables.ProgrammingPage
+import com.example.attribute_programming_app.composables.QueryPage
+import com.example.attribute_programming_app.composables.StartupPage
 
 @Composable
 fun Navigation() {
