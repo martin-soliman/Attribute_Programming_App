@@ -3,6 +3,7 @@ import androidx.compose.runtime.Composable
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
+import com.example.attribute_programming_app.composables.BluetoothDevicesPage
 import com.example.attribute_programming_app.composables.BluetoothFailedPage
 import com.example.attribute_programming_app.composables.BluetoothScanPage
 import com.example.attribute_programming_app.composables.CredentialsAuthenticationPage
@@ -25,6 +26,9 @@ fun Navigation() {
         composable(route = Screen.AuthenticationFailedScreen.route) {
             CredentialsFailedPage(navController = navController)
         }
+//        composable(route = Screen.BluetoothDevicesScreen.route) {
+//            BluetoothDevicesPage(navController = navController)
+//        }
         composable(route = Screen.BluetoothScreen.route) {
             BluetoothScanPage(navController = navController)
         }
