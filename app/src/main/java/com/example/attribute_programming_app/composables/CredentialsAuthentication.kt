@@ -1,4 +1,4 @@
-package com.example.attribute_programming_app
+package com.example.attribute_programming_app.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -6,6 +6,9 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -17,40 +20,44 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.attribute_programming_app.R
+import com.example.attribute_programming_app.navigation.Screen
 import com.example.attribute_programming_app.ui.theme.Attribute_Programming_AppTheme
 
 @Composable
-fun CredentialsFailedPage(modifier: Modifier = Modifier, navController: NavController) {
+fun CredentialsAuthenticationPage(modifier: Modifier = Modifier, navController: NavController) {
     Column(
         modifier = modifier.fillMaxSize(),
-        verticalArrangement = Arrangement.Top,
+        verticalArrangement = Arrangement.Center,
         horizontalAlignment =  Alignment.CenterHorizontally,
     ) {
         Text(
-            text = stringResource(R.string.credentials_failed),
+            text = stringResource(R.string.credentials_authentication),
             fontSize = 30.sp,
             textAlign = TextAlign.Center,
             modifier = Modifier
                 .padding(
-                    top = 50.dp,
                     start = 25.dp,
                     end = 25.dp,
-                )
+                    bottom = 5.dp)
+                .weight(0.75F, fill = false)
         )
 
-        ErrorImage()
+        Spacer(modifier = Modifier.height(100.dp))
 
-        Spacer(modifier = Modifier.height(20.dp))
-
-        AppButton(
-            { navController.navigate(Screen.AuthenticationScreen.route) },
-            stringResource(R.string.try_again)
+        CircularProgressIndicator(
+            modifier = Modifier
+                .width(64.dp)
+                .padding(
+                    top = 50.dp,
+                    bottom = 250.dp
+                ),
+            color = MaterialTheme.colorScheme.secondary,
+            trackColor = MaterialTheme.colorScheme.surfaceVariant,
         )
 
-        Spacer(modifier = Modifier.height(125.dp))
-
         AppButton(
-            { navController.navigate(Screen.BluetoothScreen.route) },
+            { navController.navigate(Screen.AuthenticationFailedScreen.route) },
             stringResource(R.string.next)
         )
     }
@@ -58,8 +65,8 @@ fun CredentialsFailedPage(modifier: Modifier = Modifier, navController: NavContr
 
 @Preview(showBackground = true)
 @Composable
-fun CredentialsFailedPreview() {
+fun CredentialsAuthenticationPreview() {
     Attribute_Programming_AppTheme {
-        CredentialsFailedPage(navController = rememberNavController())
+       CredentialsAuthenticationPage(navController = rememberNavController())
     }
 }

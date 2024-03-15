@@ -1,4 +1,4 @@
-package com.example.attribute_programming_app
+package com.example.attribute_programming_app.navigation
 
 sealed class Screen(val route: String) {
     object StartupScreen: Screen("startup_screen")

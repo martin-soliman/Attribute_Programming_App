@@ -1,4 +1,4 @@
-package com.example.attribute_programming_app
+package com.example.attribute_programming_app.composables
 
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
@@ -22,6 +22,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.navigation.NavController
 import androidx.navigation.compose.rememberNavController
+import com.example.attribute_programming_app.R
+import com.example.attribute_programming_app.navigation.Screen
 import com.example.attribute_programming_app.ui.theme.Attribute_Programming_AppTheme
 
 @Composable
